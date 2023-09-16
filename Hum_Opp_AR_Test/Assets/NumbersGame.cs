@@ -50,12 +50,6 @@ public class NumbersGame : MonoBehaviour
         }
     }
 
-    void SpawnNumber()
-    {
-
-
-    }
-
     void PickNumber()
     {
         currentNumber = numList[Random.Range(0,numList.Count)];
