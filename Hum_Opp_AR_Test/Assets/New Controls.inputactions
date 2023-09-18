@@ -47,6 +47,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7c8dec37-4202-4f53-9502-b1d8414419af",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickNumber",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "bee061ba-38cc-4527-8fc5-0121e7e9ce70",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",

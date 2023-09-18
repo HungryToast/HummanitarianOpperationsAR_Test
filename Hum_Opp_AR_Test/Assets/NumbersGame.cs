@@ -14,7 +14,9 @@ public class NumbersGame : MonoBehaviour
     [SerializeField] GameObject numberPrefab;
     Numbers numbersScript;
 
-    [SerializeField] ARPlaneManager aRPlaneManager;
+    [SerializeField] GameObject numberSelector;
+
+    [SerializeField] ARRaycastManager aRRaycastManager;
    
 
     private int currentNumberIndex;
@@ -33,10 +35,15 @@ public class NumbersGame : MonoBehaviour
         }
         listSize = numList.Count;   
 
-        aRPlaneManager = GetComponent<ARPlaneManager>();
+       aRRaycastManager = GetComponent<ARRaycastManager>();
     }
 
-    public void OnPickNumber()
+    public void OnPickNumber() 
+    { 
+        
+    }
+
+    public void ChangeNumber()
     {
         //Due to a known bug the lise size has to be created as a variable instead of directly using the numList.Count as I originally did
 
@@ -65,8 +72,28 @@ public class NumbersGame : MonoBehaviour
     void SpawnNumber()
     {
         numbersScript = GameObject.Instantiate(numberPrefab).GetComponent<Numbers>();
+        MoveNumberToRandomPosition();
         numbersScript.SetChildren();
     }
     
+    void MoveNumberToRandomPosition()
+    {
+        List<ARRaycastHit> hits = new List<ARRaycastHit>();
+        Vector2 randomScreenPoint = new Vector2(Random.Range(0, Screen.width), Random.Range(0, Screen.height));
 
+        if (aRRaycastManager.Raycast(randomScreenPoint, hits, TrackableType.PlaneWithinPolygon))
+        {
+            Pose hitPose = hits[0].pose;
+            numberPrefab.gameObject.transform.position = hitPose.position;
+        }
+
+    }
+
+    public int GetCurrentNumber()
+    {
+        return currentNum;
+    }
+
+
+  
 }
