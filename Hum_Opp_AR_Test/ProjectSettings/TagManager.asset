@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Number
+  - CorrectNumber
+  - IncorrectNumber
   layers:
   - Default
   - TransparentFX
