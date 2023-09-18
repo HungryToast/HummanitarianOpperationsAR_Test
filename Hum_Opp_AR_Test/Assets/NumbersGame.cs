@@ -10,11 +10,15 @@ public class NumbersGame : MonoBehaviour
 {
     int maxNum;
     List<int> numList;
+    int listSize;
     [SerializeField] GameObject numberPrefab;
+    Numbers numbersScript;
 
-    [SerializeField] ARRaycastManager raycastManager;
+    [SerializeField] ARPlaneManager aRPlaneManager;
+   
 
-    private int currentNumber;
+    private int currentNumberIndex;
+    private int currentNum;
 
     private void Awake()
     {
@@ -27,37 +31,42 @@ public class NumbersGame : MonoBehaviour
         {
             numList.Add(i+1);
         }
+        listSize = numList.Count;   
 
-
-        raycastManager = GetComponent<ARRaycastManager>();
+        aRPlaneManager = GetComponent<ARPlaneManager>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnPickNumber()
     {
-        
-          
-        
-    }
+        //Due to a known bug the lise size has to be created as a variable instead of directly using the numList.Count as I originally did
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (numList.Count > 0)
-        {
-            PickNumber();
-            RemoveNumber();
+        if (numList.Count > 0) 
+        { 
+            currentNumberIndex = Random.Range(0,listSize);
+            print("Current List Index = " + currentNumberIndex);
+            currentNum = numList[currentNumberIndex];
+            SpawnNumber();
+            numbersScript.SetNumber(currentNum);
+
         }
     }
 
-    void PickNumber()
+    public void OnRemoveNumber()
     {
-        currentNumber = numList[Random.Range(0,numList.Count)];
-        print (currentNumber + 1);
+        if (numList.Count > 0) 
+        { 
+            numList.Remove(currentNum);
+            listSize--; 
+            Destroy(numbersScript.gameObject);
+        } 
+        
     }
 
-    void RemoveNumber()
+    void SpawnNumber()
     {
-        numList.RemoveAt(currentNumber);
+        numbersScript = GameObject.Instantiate(numberPrefab).GetComponent<Numbers>();
+        numbersScript.SetChildren();
     }
+    
+
 }

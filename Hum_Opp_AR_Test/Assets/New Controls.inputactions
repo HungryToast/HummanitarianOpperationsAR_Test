@@ -1,0 +1,74 @@
+{
+    "name": "New Controls",
+    "maps": [
+        {
+            "name": "Testing",
+            "id": "9ce32786-e4e1-4b36-b2e8-ae1e8b110759",
+            "actions": [
+                {
+                    "name": "PickNumber",
+                    "type": "Button",
+                    "id": "2b715ec5-b998-4182-ba74-f4910c111023",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RemoveNumber",
+                    "type": "Button",
+                    "id": "81712c20-03eb-44c7-80be-1e9b36366cae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PrintNumber",
+                    "type": "Button",
+                    "id": "28ef1418-7b73-4354-b7da-d7e8a8069e7b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b41621b5-b328-45a1-a737-c480e7efec7e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickNumber",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bee061ba-38cc-4527-8fc5-0121e7e9ce70",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoveNumber",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "40bf4901-0666-4ff0-8cbe-835b3759326d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrintNumber",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
